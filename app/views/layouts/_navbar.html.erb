@@ -1,0 +1,13 @@
+<header class="flex justify-between items-center w-full py-4 px-8 top-0 border">
+    <p class="text-xl font-bold">Community Forum</p>
+    <% if user_signed_in? %>
+        <div class="flex space-x-4 items-center">
+            <p class="font-semibold"><%= current_user.name%></p>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "border px-4 py-2 rounded-lg"%>
+        </div>
+    <%else%>
+        <div class="flex space-x-4 items-center">
+            <%= button_to sanitize("Login &rarr;"), new_user_session_path, class: "font-semibold px-4 py-2 rounded-lg" %>
+        </div>
+    <%end%>
+</header>

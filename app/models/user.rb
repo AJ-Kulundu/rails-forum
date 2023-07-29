@@ -7,6 +7,11 @@ class User < ApplicationRecord
   #relationsips
   has_many :members
   has_many :communities, through: :members
-  #validations
+
+
+
+  def name
+    email.split('@').first.capitalize
+  end
 
 end
