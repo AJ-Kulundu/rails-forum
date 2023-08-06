@@ -1,0 +1,19 @@
+<%= form_with model: community do |form|%>
+    <div class="flex flex-col space-y-4">
+        <div>
+            <%= form.label :name %><br>
+            <%= form.text_field :name %>
+        </div>
+        <div>
+            <%= form.label :description %><br>
+            <%= form.text_area :description %>
+        </div>
+        <div>
+            <%= form.label :private %><br>
+            <%= form.check_box :private %>
+        </div>
+        <div>
+            <%= form.submit %>
+        </div>
+    </div>
+<% end %>
