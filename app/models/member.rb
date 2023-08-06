@@ -3,5 +3,5 @@ class Member < ApplicationRecord
   belongs_to :community
 
   #Enums
-  enum :role, %i[member admin]
+  enum :role, %i[member moderator admin]
 end
