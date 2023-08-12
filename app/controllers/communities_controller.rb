@@ -6,7 +6,10 @@ class CommunitiesController < ApplicationController
         @communities = Community.all
     end
 
-    def show; end
+    def show
+        @members = @community.members.includes(:user)
+        console
+    end
 
     def new
         @community = Community.new
