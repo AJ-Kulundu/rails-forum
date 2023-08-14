@@ -8,7 +8,6 @@ class CommunitiesController < ApplicationController
 
     def show
         @members = @community.members.includes(:user)
-        console
     end
 
     def new
@@ -17,8 +16,8 @@ class CommunitiesController < ApplicationController
 
     def create
         @community = Community.new(community_params)
-        if @community.save
-            redirect_to communities_path if @community.members.create(community_id: @community.id, user: current_user, role: :admin)
+        if @community.members.create(community_id: @community.id, user: current_user, role: :admin) and @community.save
+            redirect_to communities_path 
         else
             render :new
         end

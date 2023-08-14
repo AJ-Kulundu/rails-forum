@@ -1,6 +1,4 @@
-<div>
+<div class="flex flex-col space-y-4 ">
   <h1 class="font-bold text-4xl">Commumity#index</h1>
-  <%@communities.each do |community|%>
-    <p><%= community.name%><p>
-  <%end%>
+  <%= render @communities %>
 </div>
