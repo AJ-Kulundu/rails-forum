@@ -1,5 +1,8 @@
 <header class="flex justify-between items-center w-full py-4 px-8 top-0 border">
     <p class="text-xl font-bold">Community Forum</p>
+    <div>
+     <%= link_to "Community", communities_path,class: "font-semibold hover:underline" %>
+    </div>
     <% if user_signed_in? %>
         <div class="flex space-x-4 items-center">
             <p class="font-semibold"><%= current_user.name%></p>
@@ -7,7 +10,7 @@
         </div>
     <%else%>
         <div class="flex space-x-4 items-center">
-            <%= button_to sanitize("Login &rarr;"), new_user_session_path, class: "font-semibold px-4 py-2 rounded-lg" %>
+            <%= link_to sanitize("Login &rarr;"), new_user_session_path, class: "font-semibold px-4 py-2 rounded-lg" %>
         </div>
     <%end%>
 </header>
