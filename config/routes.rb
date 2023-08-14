@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
-  resources :communities 
+  resources :communities, path:"community" do
+    resources :members, only: %i[create destroy] ,path_names: { create: 'join', destroy: 'leave' }
+  end
 end

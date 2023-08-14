@@ -5,5 +5,11 @@
         <span class="inline-flex items-center rounded-xl bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Private</span>
         <%end%>
     </div>
-    <p><%= community.members.size%></p>
+    <%if user_signed_in? and community.private%>
+        <%= button_to "Join", community_members_path(community), method: :post %>
+    <%elsif !user_signed_in? and !community.private %>
+        <%= link_to "View", community_path(community) %>
+    <%else%>
+        <%= link_to "Login", new_user_session_path %>
+    <%end%>
 </div>
