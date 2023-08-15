@@ -1,14 +1,10 @@
-<div class= "container flex space-x-8">
-<%= link_to sanitize("&larr; Back to Communities"), communities_path %>
-<h1 class="text-4xl font-bold text-center"> <%= @community.name %> </h1>
+<div class="flex justify-between items-end">
+    <div class= "container flex flex-col space-y-4 ">
+        <%= link_to sanitize("&larr; Back to Communities"), communities_path %>
+        <h1 class="text-2xl font-bold text-left"> <%= @community.name %> </h1>
+    </div>
+    <p class="flex text-2xl font-bold">Members:&nbsp;<%=@community.users.size%></p>
 </div>
 
-<div class="flex flex-col space-y-4">
-<% @community.members.each do |member|%>
-<div class="flex space-x-4">
-<%= member.user.name  %>
-<%= member.role.capitalize%>
+<%= button_to "Leave Community", community_member_path(@community), method: :delete %>
 
-</div>
-<%end%>
-</div>
