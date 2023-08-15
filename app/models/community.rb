@@ -5,4 +5,7 @@ class Community < ApplicationRecord
 
     #validations
     validates :name, presence: true, uniqueness: true, length: {minimum: 3}
+
+    #scopes
+    scope :non_private, -> {where(private: false)}
 end

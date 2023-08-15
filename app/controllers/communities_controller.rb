@@ -3,11 +3,12 @@ class CommunitiesController < ApplicationController
     before_action :set_community, only: %i[show edit update destroy]
 
     def index
-        @communities = Community.all
+       return @communities = Community.all if user_signed_in?
+       @communities = Community.non_private
     end
 
     def show
-        @members = @community.members.includes(:user)
+        @members = @community.members.includes(:users)
     end
 
     def new
