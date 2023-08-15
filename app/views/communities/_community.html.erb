@@ -7,7 +7,7 @@
     </div>
     <%if user_signed_in? and community.private%>
         <%= button_to "Join", community_members_path(community), method: :post %>
-    <%elsif !user_signed_in? and !community.private %>
+    <%elsif user_signed_in? and !community.private %>
         <%= link_to "View", community_path(community) %>
     <%else%>
         <%= link_to "Login", new_user_session_path %>
