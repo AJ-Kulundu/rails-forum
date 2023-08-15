@@ -1,6 +1,5 @@
 class MembersController < ApplicationController
     before_action :set_community, only: %i[create destroy]
-    before_action :set_member, only: %i[destroy]
 
     def create
         @member = @community.members.create(community_id: @community.id, user: current_user)
@@ -8,17 +7,14 @@ class MembersController < ApplicationController
     end
 
     def destroy
+        @member = Member.find_by(community_id: @community.id, user: current_user)
         @member.destroy
-        redirect_to @community
+        redirect_to communities_path
     end
 
     private
 
      def set_community
          @community = Community.find(params[:community_id])
-     end
-
-     def set_member
-         @member = Member.find(params[:id])
      end
 end
