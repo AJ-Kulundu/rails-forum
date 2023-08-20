@@ -5,8 +5,19 @@
     </div>
     <% if user_signed_in? %>
         <div class="flex space-x-4 items-center">
-            <p class="font-semibold"><%= current_user.name%></p>
-            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "border px-4 py-2 rounded-lg"%>
+            <div class="relative" data-controller="dropdown" >
+                <button type="button" class="font-semibold" data-action="dropdown#toggle click@window->dropdown#hide"><%= current_user.name%></button>
+                <div
+                    data-dropdown-target="menu"
+                    class="hidden transition transform origin-top-right absolute right-0 p-4 bg-secondary rounded-lg shadow-lg w-48 z-10"
+                    data-transition-enter-from="opacity-0 scale-95"
+                    data-transition-enter-to="opacity-100 scale-100"
+                    data-transition-leave-from="opacity-100 scale-100"
+                    data-transition-leave-to="opacity-0 scale-95">
+                    <%= link_to "Profile", edit_user_registration_path,class:"hover:opacity-75" %>
+                </div>
+            </div>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "bg-primary px-4 py-2 rounded-lg"%>
         </div>
     <%else%>
         <div class="flex space-x-4 items-center">
