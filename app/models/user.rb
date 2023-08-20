@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   #relationsips
   has_many :members
+  has_many :posts
   has_many :communities, through: :members
 
 
