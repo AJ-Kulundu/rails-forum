@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   root "home#index"
   resources :communities, path:"community" do
     resources :members, only: %i[create destroy] ,path_names: { create: 'join', destroy: 'leave' }
+    resources :posts
   end
 end

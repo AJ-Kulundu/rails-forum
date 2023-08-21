@@ -1,0 +1,10 @@
+<%= form_with model: [community,post],class: "flex flex-row justify-between py-2 items-center" do |f| %>
+    <div class="flex gap-2 items-center">
+     <%= f.label "Post"%>
+     <%= f.text_field :body,placeholder: "Post something", class: "block w-full rounded-lg border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-black placeholder:text-black focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"%>
+    </div>
+
+    <div  class= "bg-primary px-4 py-2 rounded-lg">
+     <%= f.submit %>
+    </div>
+<% end %>
