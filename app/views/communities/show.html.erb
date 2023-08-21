@@ -3,8 +3,10 @@
         <%= link_to sanitize("&larr; Back to Communities"), communities_path %>
         <h1 class="text-2xl font-bold text-left"> <%= @community.name %> </h1>
     </div>
-    <p class="flex text-2xl font-bold">Members:&nbsp;<%=@community.users.size%></p>
+    <%= link_to "Add Post", new_community_post_path(@community), data: {turbo_frame: dom_id(Post.new)},class: " px-4 py-2 rounded-lg bg-primary" %>
 </div>
 
 <%= button_to "Leave Community", community_member_path(@community), method: :delete %>
+
+<%= turbo_frame_tag Post.new %>
 

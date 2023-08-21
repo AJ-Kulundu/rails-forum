@@ -1,3 +1,5 @@
 <p class="text-lg font-semibold"> Create post</p>
 
-<%= render "form", community: @community, post: @post%>
+<%= turbo_frame_tag Post.new do %>
+    <%= render "form", community: @community, post: @post%>
+<% end %>
