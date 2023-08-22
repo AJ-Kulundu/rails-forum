@@ -1,1 +1,3 @@
-<p><%= post.body%>&nbsp;by&nbsp;<%=post.user.name%><p>
+<%= turbo_frame_tag nested_dom_id(community,post) do%>
+    <p><%= post.body%>&nbsp;by&nbsp;<%=post.user.name%></p>
+<%end%>

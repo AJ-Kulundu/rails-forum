@@ -1,0 +1,5 @@
+<%= turbo_stream.update Post.new, ""%>
+
+<%= turbo_stream.prepend nested_dom_id(@community,"posts") do%>
+    <%= render @post, community: @community %>
+<% end %>

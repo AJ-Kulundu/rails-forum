@@ -8,5 +8,7 @@
 
 <%= turbo_frame_tag Post.new %>
 
-<%= render @posts, community: @community%>
+<%=turbo_frame_tag nested_dom_id(@community,"posts"), class:"flex flex-col gap-2 lg:gap-4" do%>
+    <%= render @posts, community: @community%>
+<% end %>
 
