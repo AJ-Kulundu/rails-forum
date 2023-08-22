@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :members
   has_many :posts
   has_many :communities, through: :members
+  has_many :communities, through: :posts
 
 
 

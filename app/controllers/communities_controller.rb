@@ -8,7 +8,7 @@ class CommunitiesController < ApplicationController
     end
 
     def show
-        @members = @community.members.includes(:users)
+        @posts = @community.posts.includes(:user).ordered
     end
 
     def new

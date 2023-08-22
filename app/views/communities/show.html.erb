@@ -6,7 +6,7 @@
     <%= link_to "Add Post", new_community_post_path(@community), data: {turbo_frame: dom_id(Post.new)},class: " px-4 py-2 rounded-lg bg-primary" %>
 </div>
 
-<%= button_to "Leave Community", community_member_path(@community), method: :delete %>
-
 <%= turbo_frame_tag Post.new %>
+
+<%= render @posts, community: @community%>
 
